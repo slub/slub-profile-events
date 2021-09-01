@@ -1,5 +1,5 @@
 {
-	"name": "epx-anpf/slub-profile-events",
+	"name": "slub/slub-profile-events",
 	"type": "typo3-cms-extension",
 	"description": "SLUB profile service event extension for TYPO3",
 	"authors": [
