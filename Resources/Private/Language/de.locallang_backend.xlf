@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_events">
+		<header/>
+		<body>
+			<trans-unit id="plugin.title" resname="plugin.title">
+				<source>Events</source>
+				<target>Veranstaltungen</target>
+			</trans-unit>
+			<trans-unit id="plugin.eventlist.title" resname="plugin.eventlist.title">
+				<source>List of events</source>
+				<target>Liste mit Veranstaltungen</target>
+			</trans-unit>
+			<trans-unit id="plugin.eventlist.description" resname="plugin.eventlist.description">
+				<source>List of events that can be restricted using additional parameters.</source>
+				<target>Auflistung von Veranstaltungen, die über zusätzliche Parameter eingeschränkt werden können.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

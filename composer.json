@@ -1,7 +1,7 @@
 {
-	"name": "slub/slub-profile-events",
+	"name": "epx-anpf/slub-profile-events",
 	"type": "typo3-cms-extension",
-	"description": "SLUB profile event extension for TYPO3",
+	"description": "SLUB profile service event extension for TYPO3",
 	"authors": [
 		{
 			"name": "Andreas Pfeiffer",

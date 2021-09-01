@@ -1,0 +1,18 @@
+mod {
+  wizards.newContentElement.wizardItems.slubprofileevents {
+    after = common
+    header = LLL:EXT:slub_profile_events/Resources/Private/Language/locallang_backend.xlf:plugin.title
+
+    elements {
+      slubprofileevents_eventlist {
+        iconIdentifier = slubprofileevents-wizard-eventlist
+        iconOverlay = slubprofileevents-overlay-extension
+        title = LLL:EXT:slub_profile_events/Resources/Private/Language/locallang_backend.xlf:plugin.eventlist.title
+        description = LLL:EXT:slub_profile_events/Resources/Private/Language/locallang_backend.xlf:plugin.eventlist.description
+        tt_content_defValues.CType = slubprofileevents_eventlist
+      }
+    }
+
+    show := addToList(slubprofileevents_eventlist)
+  }
+}

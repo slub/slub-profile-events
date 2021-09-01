@@ -1,0 +1,4 @@
+plugin.tx_slubprofileevents {
+  # cat=plugin.tx_slubprofileevents//a; type=string; label=Default storage PID
+  settings.storagePid = 0
+}
