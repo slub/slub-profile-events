@@ -13,10 +13,6 @@ namespace Slub\SlubProfileEvents\Mvc\View;
 
 use TYPO3\CMS\Extbase\Mvc\View\JsonView as ExtbaseJsonView;
 
-/**
- * Class JsonView
- * @package Slub\SlubProfileEvents\Mvc\View
- */
 class JsonView extends ExtbaseJsonView
 {
     protected array $configuration = [

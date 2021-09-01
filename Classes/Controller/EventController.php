@@ -15,10 +15,6 @@ use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileEvents\Mvc\View\JsonView;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-/**
- * Class EventController
- * @package Slub\SlubProfileEvents
- */
 class EventController extends ActionController
 {
     protected $view;

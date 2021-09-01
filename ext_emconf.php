@@ -1,4 +1,5 @@
 <?php
+
 $EM_CONF['slub_profile_events'] = [
     'title' => 'SLUB profile events',
     'description' => 'SLUB profile service event extension for TYPO3',
