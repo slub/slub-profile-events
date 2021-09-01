@@ -11,10 +11,16 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileEvents\Mvc\View;
 
-class JsonView extends \TYPO3\CMS\Extbase\Mvc\View\JsonView
+use TYPO3\CMS\Extbase\Mvc\View\JsonView as ExtbaseJsonView;
+
+class JsonView extends ExtbaseJsonView
 {
+    /**
+     * @var array
+     */
     protected array $configuration = [
         'events' => [
+            '_exclude' => ['test'],
         ]
     ];
 }
