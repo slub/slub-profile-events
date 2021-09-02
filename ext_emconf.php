@@ -20,7 +20,7 @@ $EM_CONF['slub_profile_events'] = [
     'version' => '0.1.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '11.0.0-11.4.99'
+            'typo3' => '11.0.0-11.5.99'
         ],
         'conflicts' => [],
         'suggests' => [],
