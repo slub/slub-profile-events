@@ -31,10 +31,16 @@ class EventService
     {
         // filter by get params is missing
         // use dto for this like eventDemand
-        return $this->apiService->handle(
-            // Use target hostname to communicate between ddev container like ddev-<container-web
-            // url in extension configuration in typo3 backend
-            'https://ddev-ddev-slub-katalog-web/?type=1452982642&tx_slubevents_apieventlist[limit]=2'
-        ) ?? [];
+        //$url = '?type=1452982642&tx_slubevents_apieventlist[limit]=2';
+
+        $arguments = [
+            'tx_slubevents_apieventlist' => [
+                'limit' => 1
+            ]
+        ];
+
+        $uri = $this->apiService->buildListUri($arguments);
+
+        return $this->apiService->handle($uri) ?? [];
     }
 }

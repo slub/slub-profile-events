@@ -16,6 +16,8 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
+use Slub\SlubProfileEvents\Domain\Model\Dto\ExtensionConfiguration;
+use Slub\SlubProfileEvents\Utility\ConstantsUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 class ApiService implements LoggerAwareInterface
@@ -26,14 +28,19 @@ class ApiService implements LoggerAwareInterface
         'headers' => ['Cache-Control' => 'no-cache'],
         'allow_redirects' => false
     ];
-    private RequestFactoryInterface $requestFactory;
+    protected ExtensionConfiguration $extensionConfiguration;
+    protected RequestFactoryInterface $requestFactory;
 
     /**
      * EventApiService constructor.
+     * @param ExtensionConfiguration $extensionConfiguration
      * @param RequestFactoryInterface $requestFactory
      */
-    public function __construct(RequestFactoryInterface $requestFactory)
-    {
+    public function __construct(
+        ExtensionConfiguration $extensionConfiguration,
+        RequestFactoryInterface $requestFactory
+    ) {
+        $this->extensionConfiguration = $extensionConfiguration;
         $this->requestFactory = $requestFactory;
     }
 
@@ -55,6 +62,19 @@ class ApiService implements LoggerAwareInterface
 
             return null;
         }
+    }
+
+    /**
+     * @param array $parameter
+     * @return string
+     */
+    public function buildListUri(array $parameter): string
+    {
+        if (count(ConstantsUtility::API_PAGE_TYPE_EVENT_LIST) > 0) {
+            ArrayUtility::mergeRecursiveWithOverrule($parameter, ConstantsUtility::API_PAGE_TYPE_EVENT_LIST);
+        }
+
+        return $this->extensionConfiguration->getApiUrl() . '?' . http_build_query($parameter);
     }
 
     /**
@@ -85,11 +105,14 @@ class ApiService implements LoggerAwareInterface
         }
 
         if (empty($content)) {
-            $this->logger->warning('Requesting {request} was not successful, got status code {status} ({reason})', [
-                'request' => $uri,
-                'status' => $response->getStatusCode(),
-                'reason' => $response->getReasonPhrase(),
-            ]);
+            $this->logger->warning(
+                'Requesting {request} was not successful, got status code {status} ({reason})',
+                [
+                    'request' => $uri,
+                    'status' => $response->getStatusCode(),
+                    'reason' => $response->getReasonPhrase(),
+                ]
+            );
 
             return null;
         }
