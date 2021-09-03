@@ -6,3 +6,9 @@ services:
 
   Slub\SlubProfileEvents\:
     resource: '../Classes/*'
+
+  Slub\SlubProfileEvents\Service\ApiService:
+    public: true
+
+  Slub\SlubProfileEvents\Service\EventService:
+    public: true

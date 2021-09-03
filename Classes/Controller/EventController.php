@@ -13,24 +13,30 @@ namespace Slub\SlubProfileEvents\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileEvents\Mvc\View\JsonView;
+use Slub\SlubProfileEvents\Service\EventService;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class EventController extends ActionController
 {
     protected $view;
     protected $defaultViewObjectName = JsonView::class;
+    protected EventService $eventService;
+
+    /**
+     * EventController constructor.
+     * @param EventService $eventService
+     */
+    public function __construct(EventService $eventService)
+    {
+        $this->eventService = $eventService;
+    }
 
     /**
      * @return ResponseInterface
      */
     public function listAction(): ResponseInterface
     {
-        $events = [
-            'items' => [
-                'test' => 1,
-                'probe' => 2
-            ]
-        ];
+        $events = $this->eventService->getEvents();
 
         $this->view->setVariablesToRender(['events']);
         $this->view->assign('events', $events);

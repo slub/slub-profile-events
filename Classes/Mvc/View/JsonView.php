@@ -15,14 +15,28 @@ use TYPO3\CMS\Extbase\Mvc\View\JsonView as ExtbaseJsonView;
 
 class JsonView extends ExtbaseJsonView
 {
+    /**
+     * The rendering configuration for this JSON view which
+     * determines which properties of each variable to render.
+     * In default all data are given.
+     *
+     * You can exclude fields like:
+     *
+     * 'events' => [
+     *     '_descendAll' => [
+     *         '_exclude' => [
+     *             'categories',
+     *             'contact',
+     *             'discipline'
+     *         ]
+     *     ]
+     * ]
+     */
     protected array $eventConfiguration = [
         'events' => [
         ]
     ];
 
-    /**
-     * JsonView constructor.
-     */
     public function __construct()
     {
         $this->setConfiguration($this->eventConfiguration);
