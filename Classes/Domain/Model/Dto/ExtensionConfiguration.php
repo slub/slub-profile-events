@@ -19,31 +19,31 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ExtensionConfiguration implements SingletonInterface
 {
-    protected string $apiUrl;
+    protected string $requestUrl;
 
     public function __construct()
     {
         $configuration = $this->getConfiguration(ConstantsUtility::EXTENSION_KEY);
 
         if (count($configuration) > 0) {
-            $this->setApiUrl($configuration['apiUrl']);
+            $this->setRequestUrl($configuration['requestUrl']);
         }
     }
 
     /**
      * @return string
      */
-    public function getApiUrl(): string
+    public function getRequestUrl(): string
     {
-        return $this->apiUrl;
+        return $this->requestUrl;
     }
 
     /**
-     * @param string $apiUrl
+     * @param string $requestUrl
      */
-    public function setApiUrl($apiUrl = ''): void
+    public function setRequestUrl($requestUrl = ''): void
     {
-        $this->apiUrl = $apiUrl;
+        $this->requestUrl = $requestUrl;
     }
 
     /**

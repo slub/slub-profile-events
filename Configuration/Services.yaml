@@ -7,8 +7,8 @@ services:
   Slub\SlubProfileEvents\:
     resource: '../Classes/*'
 
-  Slub\SlubProfileEvents\Service\ApiService:
+  Slub\SlubProfileEvents\Service\EventService:
     public: true
 
-  Slub\SlubProfileEvents\Service\EventService:
+  Slub\SlubProfileEvents\Service\RequestService:
     public: true

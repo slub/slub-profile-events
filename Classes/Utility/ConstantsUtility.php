@@ -16,8 +16,8 @@ class ConstantsUtility
     public const EXTENSION_NAME = 'slubprofileevents';
     public const EXTENSION_KEY = 'slub_profile_events';
 
-    // Page type to call the event list api
-    public const API_PAGE_TYPE_EVENT_LIST = [
+    // Page type for request event list
+    public const PAGE_TYPE_EVENT_LIST = [
         'type' => 1452982642
     ];
 }

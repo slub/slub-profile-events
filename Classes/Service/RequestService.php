@@ -20,7 +20,7 @@ use Slub\SlubProfileEvents\Domain\Model\Dto\ExtensionConfiguration;
 use Slub\SlubProfileEvents\Utility\ConstantsUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 
-class ApiService implements LoggerAwareInterface
+class RequestService implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
@@ -32,7 +32,7 @@ class ApiService implements LoggerAwareInterface
     protected RequestFactoryInterface $requestFactory;
 
     /**
-     * EventApiService constructor.
+     * RequestService constructor.
      * @param ExtensionConfiguration $extensionConfiguration
      * @param RequestFactoryInterface $requestFactory
      */
@@ -50,7 +50,7 @@ class ApiService implements LoggerAwareInterface
      * @param array $options
      * @return array|null
      */
-    public function handle($uri = '', $method = 'GET', array $options = []): ?array
+    public function process($uri = '', $method = 'GET', array $options = []): ?array
     {
         try {
             $options = $this->mergeOptions($this->options, $options);
@@ -70,11 +70,11 @@ class ApiService implements LoggerAwareInterface
      */
     public function buildListUri(array $parameter): string
     {
-        if (count(ConstantsUtility::API_PAGE_TYPE_EVENT_LIST) > 0) {
-            ArrayUtility::mergeRecursiveWithOverrule($parameter, ConstantsUtility::API_PAGE_TYPE_EVENT_LIST);
+        if (count(ConstantsUtility::PAGE_TYPE_EVENT_LIST) > 0) {
+            ArrayUtility::mergeRecursiveWithOverrule($parameter, ConstantsUtility::PAGE_TYPE_EVENT_LIST);
         }
 
-        return $this->extensionConfiguration->getApiUrl() . '?' . http_build_query($parameter);
+        return $this->extensionConfiguration->getRequestUrl() . '?' . http_build_query($parameter);
     }
 
     /**

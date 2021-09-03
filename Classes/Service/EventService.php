@@ -13,15 +13,15 @@ namespace Slub\SlubProfileEvents\Service;
 
 class EventService
 {
-    protected ApiService $apiService;
+    protected RequestService $requestService;
 
     /**
      * EventService constructor.
-     * @param ApiService $apiService
+     * @param RequestService $requestService
      */
-    public function __construct(ApiService $apiService)
+    public function __construct(RequestService $requestService)
     {
-        $this->apiService = $apiService;
+        $this->requestService = $requestService;
     }
 
     /**
@@ -31,16 +31,14 @@ class EventService
     {
         // filter by get params is missing
         // use dto for this like eventDemand
-        //$url = '?type=1452982642&tx_slubevents_apieventlist[limit]=2';
-
         $arguments = [
             'tx_slubevents_apieventlist' => [
                 'limit' => 1
             ]
         ];
 
-        $uri = $this->apiService->buildListUri($arguments);
+        $uri = $this->requestService->buildListUri($arguments);
 
-        return $this->apiService->handle($uri) ?? [];
+        return $this->requestService->process($uri) ?? [];
     }
 }
