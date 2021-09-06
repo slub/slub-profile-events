@@ -11,33 +11,34 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileEvents\Service;
 
+use Slub\SlubProfileEvents\Validation\EventArgumentValidator;
+
 class EventService
 {
+    protected EventArgumentValidator $eventArgumentValidator;
     protected RequestService $requestService;
 
     /**
      * EventService constructor.
+     * @param EventArgumentValidator $eventArgumentValidator
      * @param RequestService $requestService
      */
-    public function __construct(RequestService $requestService)
-    {
+    public function __construct(
+        EventArgumentValidator $eventArgumentValidator,
+        RequestService $requestService
+    ) {
+        $this->eventArgumentValidator = $eventArgumentValidator;
         $this->requestService = $requestService;
     }
 
     /**
+     * @param array $arguments
      * @return array
      */
-    public function getEvents(): array
+    public function getEvents(array $arguments): array
     {
-        // filter by get params is missing
-        // use dto for this like eventDemand
-        $arguments = [
-            'tx_slubevents_apieventlist' => [
-                'limit' => 1
-            ]
-        ];
-
-        $uri = $this->requestService->buildListUri($arguments);
+        $validatedArguments = $this->eventArgumentValidator->validateArguments($arguments);
+        $uri = $this->requestService->buildUri($validatedArguments);
 
         return $this->requestService->process($uri) ?? [];
     }

@@ -16,6 +16,9 @@
 			<trans-unit id="extensionConfiguration.requestUrl" resname="extensionConfiguration.requestUrl">
 				<source>URL: The url has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".</source>
 			</trans-unit>
+			<trans-unit id="extensionConfiguration.requestArgumentIdentifier" resname="extensionConfiguration.requestArgumentIdentifier">
+				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

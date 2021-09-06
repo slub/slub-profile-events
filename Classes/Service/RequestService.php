@@ -17,7 +17,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use Slub\SlubProfileEvents\Domain\Model\Dto\ExtensionConfiguration;
-use Slub\SlubProfileEvents\Utility\ConstantsUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 class RequestService implements LoggerAwareInterface
@@ -65,16 +64,23 @@ class RequestService implements LoggerAwareInterface
     }
 
     /**
-     * @param array $parameter
+     * @param array $additionalParameter
      * @return string
      */
-    public function buildListUri(array $parameter): string
+    public function buildUri(array $additionalParameter): string
     {
-        if (count(ConstantsUtility::PAGE_TYPE_EVENT_LIST) > 0) {
-            ArrayUtility::mergeRecursiveWithOverrule($parameter, ConstantsUtility::PAGE_TYPE_EVENT_LIST);
+        $parameter = [];
+        $requestUrl = $this->extensionConfiguration->getRequestUrl();
+        $requestArgumentIdentifier = $this->extensionConfiguration->getRequestArgumentIdentifier();
+
+        empty($requestArgumentIdentifier) ?: $parameter[$requestArgumentIdentifier] = $additionalParameter;
+
+        if (count($parameter) > 0) {
+            $requestUrl .= strpos($requestUrl, '?') ? '&' : '?';
+            $requestUrl .= http_build_query($parameter);
         }
 
-        return $this->extensionConfiguration->getRequestUrl() . '?' . http_build_query($parameter);
+        return $requestUrl;
     }
 
     /**

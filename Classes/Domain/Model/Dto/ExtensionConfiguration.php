@@ -20,14 +20,14 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class ExtensionConfiguration implements SingletonInterface
 {
     protected string $requestUrl;
+    protected string $requestArgumentIdentifier;
 
     public function __construct()
     {
         $configuration = $this->getConfiguration(ConstantsUtility::EXTENSION_KEY);
 
-        if (count($configuration) > 0) {
-            $this->setRequestUrl($configuration['requestUrl']);
-        }
+        empty($configuration['requestUrl']) ?: $this->setRequestUrl($configuration['requestUrl']);
+        empty($configuration['requestArgumentIdentifier']) ?: $this->setRequestArgumentIdentifier($configuration['requestArgumentIdentifier']);
     }
 
     /**
@@ -44,6 +44,22 @@ class ExtensionConfiguration implements SingletonInterface
     public function setRequestUrl($requestUrl = ''): void
     {
         $this->requestUrl = $requestUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestArgumentIdentifier(): string
+    {
+        return $this->requestArgumentIdentifier;
+    }
+
+    /**
+     * @param string $requestArgumentIdentifier
+     */
+    public function setRequestArgumentIdentifier($requestArgumentIdentifier = ''): void
+    {
+        $this->requestArgumentIdentifier = $requestArgumentIdentifier;
     }
 
     /**

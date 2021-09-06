@@ -36,7 +36,7 @@ class EventController extends ActionController
      */
     public function listAction(): ResponseInterface
     {
-        $events = $this->eventService->getEvents();
+        $events = $this->eventService->getEvents($this->request->getArguments());
 
         $this->view->setVariablesToRender(['events']);
         $this->view->assign('events', $events);
