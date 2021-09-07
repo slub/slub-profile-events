@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class EventArgumentValidator
 {
-    protected array $validArguments;
+    protected array $validArguments = [];
 
     /**
      * @param array $arguments
