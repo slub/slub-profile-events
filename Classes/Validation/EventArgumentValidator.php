@@ -23,15 +23,17 @@ class EventArgumentValidator
      */
     public function validateArguments(array $arguments): array
     {
-        $this->validateCommaSeparatedStringIds('category', $arguments['category']);
-        $this->validateCommaSeparatedStringIds('discipline', $arguments['discipline']);
-        $this->validateCommaSeparatedStringIds('contact', $arguments['contact']);
-        $this->validateChecked('showPastEvents', $arguments['showPastEvents']);
-        $this->validateChecked('showEventsFromNow', $arguments['showEventsFromNow']);
-        $this->validateInteger('limitByNextWeeks', $arguments['limitByNextWeeks']);
-        $this->validateStartAndStopTimestamp($arguments['startTimestamp'], $arguments['stopTimestamp']);
-        $this->validateSorting('sorting', $arguments['sorting']);
-        $this->validateInteger('limit', $arguments['limit']);
+        if (count($arguments) > 0) {
+            $this->validateCommaSeparatedStringIds('category', $arguments['category']);
+            $this->validateCommaSeparatedStringIds('discipline', $arguments['discipline']);
+            $this->validateCommaSeparatedStringIds('contact', $arguments['contact']);
+            $this->validateChecked('showPastEvents', $arguments['showPastEvents']);
+            $this->validateChecked('showEventsFromNow', $arguments['showEventsFromNow']);
+            $this->validateInteger('limitByNextWeeks', $arguments['limitByNextWeeks']);
+            $this->validateStartAndStopTimestamp($arguments['startTimestamp'], $arguments['stopTimestamp']);
+            $this->validateSorting('sorting', $arguments['sorting']);
+            $this->validateInteger('limit', $arguments['limit']);
+        }
 
         return $this->validArguments;
     }
