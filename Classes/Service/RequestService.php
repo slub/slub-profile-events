@@ -14,32 +14,33 @@ namespace Slub\SlubProfileEvents\Service;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
+use Psr\Log\LoggerInterface;
 use Slub\SlubProfileEvents\Domain\Model\Dto\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 
-class RequestService implements LoggerAwareInterface
+class RequestService
 {
-    use LoggerAwareTrait;
-
     public array $options = [
         'headers' => ['Cache-Control' => 'no-cache'],
         'allow_redirects' => false
     ];
     protected ExtensionConfiguration $extensionConfiguration;
+    protected LoggerInterface $logger;
     protected RequestFactoryInterface $requestFactory;
 
     /**
      * RequestService constructor.
      * @param ExtensionConfiguration $extensionConfiguration
+     * @param LoggerInterface $logger
      * @param RequestFactoryInterface $requestFactory
      */
     public function __construct(
         ExtensionConfiguration $extensionConfiguration,
+        LoggerInterface $logger,
         RequestFactoryInterface $requestFactory
     ) {
         $this->extensionConfiguration = $extensionConfiguration;
+        $this->logger = $logger;
         $this->requestFactory = $requestFactory;
     }
 
