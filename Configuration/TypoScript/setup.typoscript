@@ -1,0 +1,10 @@
+plugin.tx_slubprofileevents {
+  mvc {
+    callDefaultActionIfActionCantBeResolved = 1
+    throwPageNotFoundExceptionIfActionCantBeResolved = 1
+  }
+
+  features {
+    skipDefaultArguments = 1
+  }
+}

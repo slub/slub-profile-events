@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Slub\SlubProfileEvents\:
+    resource: '../Classes/*'
+
+  Slub\SlubProfileEvents\Service\EventService:
+    public: true
+
+  Slub\SlubProfileEvents\Service\RequestService:
+    public: true

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2012-11-01T14:46:01Z"  product-name="slub_profile_events">
+		<header/>
+		<body>
+			<trans-unit id="plugin.title" resname="plugin.title">
+				<source>Events</source>
+				<target>Veranstaltungen</target>
+			</trans-unit>
+			<trans-unit id="plugin.eventlist.title" resname="plugin.eventlist.title">
+				<source>List of events</source>
+				<target>Liste mit Veranstaltungen</target>
+			</trans-unit>
+			<trans-unit id="plugin.eventlist.description" resname="plugin.eventlist.description">
+				<source>List of events that can be restricted using additional parameters.</source>
+				<target>Auflistung von Veranstaltungen, die über zusätzliche Parameter eingeschränkt werden können.</target>
+			</trans-unit>
+
+			<trans-unit id="extensionConfiguration.requestUrl" resname="extensionConfiguration.requestUrl">
+				<source>URL: The url has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".</source>
+				<target>URL: Die URL muss mit "https://" anfangen. Wenn ein anderer Ddev-Container angesprochen werden soll, benutze bitte "https://ddev-###YOUR-CONTAINER###-web".</target>
+			</trans-unit>
+			<trans-unit id="extensionConfiguration.requestArgumentIdentifier" resname="extensionConfiguration.requestArgumentIdentifier">
+				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
+				<target>Parameter ID: Die Parameter benötigen einen spezifischen Container. Default-Wert "tx_slubevents_apieventlist". Nur ändern, wenn wirklich notwendig.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
