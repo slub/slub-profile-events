@@ -12,54 +12,27 @@ declare(strict_types=1);
 namespace Slub\SlubProfileEvents\Domain\Model\Dto;
 
 use Exception;
+use Slub\SlubProfileEvents\Domain\Model\Dto\Request\RequestArgumentIdentifierInterface;
+use Slub\SlubProfileEvents\Domain\Model\Dto\Request\RequestArgumentIdentifierTrait;
+use Slub\SlubProfileEvents\Domain\Model\Dto\Request\RequestUriInterface;
+use Slub\SlubProfileEvents\Domain\Model\Dto\Request\RequestUriTrait;
 use Slub\SlubProfileEvents\Utility\ConstantsUtility;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration as CoreExtensionConfiguration;
-use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class ExtensionConfiguration implements SingletonInterface
+class ApiEventListUserConfiguration implements RequestUriInterface, RequestArgumentIdentifierInterface
 {
-    protected string $requestUrl;
-    protected string $requestArgumentIdentifier;
+    use RequestUriTrait;
+    use RequestArgumentIdentifierTrait;
+
+    public const KEY = 'eventListUser';
 
     public function __construct()
     {
-        $configuration = $this->getConfiguration(ConstantsUtility::EXTENSION_KEY);
+        $configuration = $this->getConfiguration(ConstantsUtility::EXTENSION_KEY)[self::KEY];
 
-        empty($configuration['requestUrl']) ?: $this->setRequestUrl($configuration['requestUrl']);
+        empty($configuration['requestUri']) ?: $this->setRequestUri($configuration['requestUri']);
         empty($configuration['requestArgumentIdentifier']) ?: $this->setRequestArgumentIdentifier($configuration['requestArgumentIdentifier']);
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestUrl(): string
-    {
-        return $this->requestUrl;
-    }
-
-    /**
-     * @param string $requestUrl
-     */
-    public function setRequestUrl($requestUrl = ''): void
-    {
-        $this->requestUrl = $requestUrl;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRequestArgumentIdentifier(): string
-    {
-        return $this->requestArgumentIdentifier;
-    }
-
-    /**
-     * @param string $requestArgumentIdentifier
-     */
-    public function setRequestArgumentIdentifier($requestArgumentIdentifier = ''): void
-    {
-        $this->requestArgumentIdentifier = $requestArgumentIdentifier;
     }
 
     /**

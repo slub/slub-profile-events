@@ -11,8 +11,16 @@ mod {
         description = LLL:EXT:slub_profile_events/Resources/Private/Language/locallang_backend.xlf:plugin.eventlist.description
         tt_content_defValues.CType = slubprofileevents_eventlist
       }
+
+      slubprofileevents_eventlistuser {
+        iconIdentifier = slubprofileevents-wizard-eventlistuser
+        iconOverlay = slubprofileevents-overlay-extension
+        title = LLL:EXT:slub_profile_events/Resources/Private/Language/locallang_backend.xlf:plugin.eventlistuser.title
+        description = LLL:EXT:slub_profile_events/Resources/Private/Language/locallang_backend.xlf:plugin.eventlistuser.description
+        tt_content_defValues.CType = slubprofileevents_eventlistuser
+      }
     }
 
-    show := addToList(slubprofileevents_eventlist)
+    show := addToList(slubprofileevents_eventlist, slubprofileevents_eventlistuser)
   }
 }

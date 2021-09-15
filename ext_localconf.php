@@ -23,3 +23,16 @@ ExtensionUtility::configurePlugin(
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
+
+// Configure plugin - event list user
+ExtensionUtility::configurePlugin(
+    'SlubProfileEvents',
+    'EventListUser',
+    [
+        EventController::class => 'listUser'
+    ],
+    [
+        EventController::class => 'listUser'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
