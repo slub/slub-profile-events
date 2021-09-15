@@ -21,7 +21,7 @@ class EventArgumentValidator
      * @param array $arguments
      * @return array
      */
-    public function validateArguments(array $arguments): array
+    public function validateDefaultArguments(array $arguments): array
     {
         if (count($arguments) > 0) {
             $this->validateCommaSeparatedStringIds('category', $arguments['category']);
@@ -34,6 +34,22 @@ class EventArgumentValidator
             $this->validateSorting('sorting', $arguments['sorting']);
             $this->validateInteger('limit', $arguments['limit']);
         }
+
+        return $this->validArguments;
+    }
+
+    /**
+     * @param array $arguments
+     * @return array
+     */
+    public function validateUserArguments(array $arguments): array
+    {
+        if (count($arguments) === 0) {
+            return ['user' => 0];
+        }
+
+        $this->validateDefaultArguments($arguments);
+        $this->validateInteger('user', $arguments['user']);
 
         return $this->validArguments;
     }

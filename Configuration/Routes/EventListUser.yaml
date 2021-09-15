@@ -1,0 +1,9 @@
+routeEnhancers:
+  EventListUser:
+    type: Simple
+#    limitToPages: [5]
+    routePath: '/{user}'
+    requirements:
+      user: '[0-9]{1,10}'
+    _arguments:
+      user: 'tx_slubprofileevents_eventlistuser/user'

@@ -6,18 +6,31 @@
 			<trans-unit id="plugin.title" resname="plugin.title">
 				<source>Events</source>
 			</trans-unit>
+
 			<trans-unit id="plugin.eventlist.title" resname="plugin.eventlist.title">
-				<source>List of events</source>
+				<source>Event list</source>
 			</trans-unit>
 			<trans-unit id="plugin.eventlist.description" resname="plugin.eventlist.description">
-				<source>List of events that can be restricted using additional parameters.</source>
+				<source>List of events with additional restriction via parameters.</source>
+			</trans-unit>
+			<trans-unit id="plugin.eventlistuser.title" resname="plugin.eventlistuser.title">
+				<source>Event list of a user</source>
+			</trans-unit>
+			<trans-unit id="plugin.eventlistuser.description" resname="plugin.eventlistuser.description">
+				<source>List of events of a user with additional restriction via parameters.</source>
 			</trans-unit>
 
-			<trans-unit id="extensionConfiguration.requestUrl" resname="extensionConfiguration.requestUrl">
-				<source>URL: The url has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".</source>
+			<trans-unit id="extensionConfiguration.eventList.requestUri" resname="extensionConfiguration.eventList.requestUri">
+				<source>URI: The uri has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".</source>
 			</trans-unit>
-			<trans-unit id="extensionConfiguration.requestArgumentIdentifier" resname="extensionConfiguration.requestArgumentIdentifier">
+			<trans-unit id="extensionConfiguration.eventList.requestArgumentIdentifier" resname="extensionConfiguration.eventList.requestArgumentIdentifier">
 				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
+			</trans-unit>
+			<trans-unit id="extensionConfiguration.eventListUser.requestUri" resname="extensionConfiguration.eventListUser.requestUri">
+				<source>URI: The uri has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".</source>
+			</trans-unit>
+			<trans-unit id="extensionConfiguration.eventListUser.requestArgumentIdentifier" resname="extensionConfiguration.eventListUser.requestArgumentIdentifier">
+				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlistuser". Change only if you know what you do.</source>
 			</trans-unit>
 		</body>
 	</file>
