@@ -24,13 +24,13 @@
 				<source>URI: The uri has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".</source>
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventList.requestArgumentIdentifier" resname="extensionConfiguration.eventList.requestArgumentIdentifier">
-				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
+				<source>Argument identifier: The parameter needs to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventListUser.requestUri" resname="extensionConfiguration.eventListUser.requestUri">
 				<source>URI: The uri has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".</source>
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventListUser.requestArgumentIdentifier" resname="extensionConfiguration.eventListUser.requestArgumentIdentifier">
-				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlistuser". Change only if you know what you do.</source>
+				<source>Argument identifier: The parameter needs to be written in a specific identifier. Default value "tx_slubevents_apieventlistuser". Change only if you know what you do.</source>
 			</trans-unit>
 		</body>
 	</file>
