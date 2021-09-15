@@ -30,7 +30,7 @@
 				<target>URI: Die URI muss mit "https://" anfangen. Wenn ein anderer DDEV-Container angesprochen werden soll, benutze bitte "https://ddev-###YOUR-CONTAINER###-web".</target>
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventList.requestArgumentIdentifier" resname="extensionConfiguration.eventList.requestArgumentIdentifier">
-				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
+				<source>Argument identifier: The parameter needs to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
 				<target>Parameter ID: Die Parameter benötigen einen spezifischen Container. Default-Wert "tx_slubevents_apieventlist". Nur ändern, wenn wirklich notwendig.</target>
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventListUser.requestUri" resname="extensionConfiguration.eventListUser.requestUri">
@@ -38,7 +38,7 @@
 				<target>URL: Die URI muss mit "https://" anfangen. Wenn ein anderer DDEV-Container angesprochen werden soll, benutze bitte "https://ddev-###YOUR-CONTAINER###-web".</target>
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventListUser.requestArgumentIdentifier" resname="extensionConfiguration.eventListUser.requestArgumentIdentifier">
-				<source>Argument identifier: The parameter need to be written in a specific identifier. Default value "tx_slubevents_apieventlistuser". Change only if you know what you do.</source>
+				<source>Argument identifier: The parameter needs to be written in a specific identifier. Default value "tx_slubevents_apieventlistuser". Change only if you know what you do.</source>
 				<target>Parameter ID: Die Parameter benötigen einen spezifischen Container. Default-Wert "tx_slubevents_apieventlistuser". Nur ändern, wenn wirklich notwendig.</target>
 			</trans-unit>
 		</body>

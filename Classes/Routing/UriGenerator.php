@@ -18,10 +18,10 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class UriGenerator
 {
     /**
-     * @param array $additionalParameter
+     * @param array $additionalParameters
      * @return string
      */
-    public function buildEventList(array $additionalParameter): string
+    public function buildEventList(array $additionalParameters): string
     {
         /** @var ApiEventListConfiguration $apiConfiguration */
         $apiConfiguration = GeneralUtility::makeInstance(ApiEventListConfiguration::class);
@@ -29,14 +29,14 @@ class UriGenerator
         $requestUri = $apiConfiguration->getRequestUri();
         $requestArgumentIdentifier = $apiConfiguration->getRequestArgumentIdentifier();
 
-        return $this->build($requestUri, $requestArgumentIdentifier, $additionalParameter);
+        return $this->build($requestUri, $requestArgumentIdentifier, $additionalParameters);
     }
 
     /**
-     * @param array $additionalParameter
+     * @param array $additionalParameters
      * @return string
      */
-    public function buildEventListUser(array $additionalParameter): string
+    public function buildEventListUser(array $additionalParameters): string
     {
         /** @var ApiEventListUserConfiguration $apiConfiguration */
         $apiConfiguration = GeneralUtility::makeInstance(ApiEventListUserConfiguration::class);
@@ -44,27 +44,27 @@ class UriGenerator
         $requestUri = $apiConfiguration->getRequestUri();
         $requestArgumentIdentifier = $apiConfiguration->getRequestArgumentIdentifier();
 
-        return $this->build($requestUri, $requestArgumentIdentifier, $additionalParameter);
+        return $this->build($requestUri, $requestArgumentIdentifier, $additionalParameters);
     }
 
     /**
      * @param string $requestUri
      * @param string $requestArgumentIdentifier
-     * @param array $additionalParameter
+     * @param array $additionalParameters
      * @return string
      */
     protected function build(
         string $requestUri,
         string $requestArgumentIdentifier,
-        array $additionalParameter
+        array $additionalParameters
     ): string {
-        $parameter = [];
+        $parameters = [];
 
-        empty($requestArgumentIdentifier) ?: $parameter[$requestArgumentIdentifier] = $additionalParameter;
+        empty($requestArgumentIdentifier) ?: $parameters[$requestArgumentIdentifier] = $additionalParameters;
 
-        if (count($parameter) > 0) {
+        if (count($parameters) > 0) {
             $requestUri .= strpos($requestUri, '?') ? '&' : '?';
-            $requestUri .= http_build_query($parameter);
+            $requestUri .= http_build_query($parameters);
         }
 
         return $requestUri;

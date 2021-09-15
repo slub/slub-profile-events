@@ -22,7 +22,6 @@ class EventService
     protected UriGenerator $uriGenerator;
 
     /**
-     * EventService constructor.
      * @param EventArgumentValidator $eventArgumentValidator
      * @param Request $request
      * @param UriGenerator $uriGenerator
