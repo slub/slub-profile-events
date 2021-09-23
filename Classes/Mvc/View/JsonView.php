@@ -34,6 +34,8 @@ class JsonView extends ExtbaseJsonView
      */
     protected array $eventConfiguration = [
         'events' => [
+        ],
+        'eventsUser' => [
         ]
     ];
 

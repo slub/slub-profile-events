@@ -11,24 +11,29 @@ declare(strict_types=1);
 
 namespace Slub\SlubProfileEvents\Service;
 
+use Slub\SlubProfileEvents\Http\Request;
+use Slub\SlubProfileEvents\Routing\UriGenerator;
 use Slub\SlubProfileEvents\Validation\EventArgumentValidator;
 
 class EventService
 {
     protected EventArgumentValidator $eventArgumentValidator;
-    protected RequestService $requestService;
+    protected Request $request;
+    protected UriGenerator $uriGenerator;
 
     /**
-     * EventService constructor.
      * @param EventArgumentValidator $eventArgumentValidator
-     * @param RequestService $requestService
+     * @param Request $request
+     * @param UriGenerator $uriGenerator
      */
     public function __construct(
         EventArgumentValidator $eventArgumentValidator,
-        RequestService $requestService
+        Request $request,
+        UriGenerator $uriGenerator
     ) {
         $this->eventArgumentValidator = $eventArgumentValidator;
-        $this->requestService = $requestService;
+        $this->request = $request;
+        $this->uriGenerator = $uriGenerator;
     }
 
     /**
@@ -37,9 +42,21 @@ class EventService
      */
     public function getEvents(array $arguments): array
     {
-        $validatedArguments = $this->eventArgumentValidator->validateArguments($arguments);
-        $uri = $this->requestService->buildUri($validatedArguments);
+        $validatedArguments = $this->eventArgumentValidator->validateDefaultArguments($arguments);
+        $uri = $this->uriGenerator->buildEventList($validatedArguments);
 
-        return $this->requestService->process($uri) ?? [];
+        return $this->request->process($uri) ?? [];
+    }
+
+    /**
+     * @param array $arguments
+     * @return array
+     */
+    public function getEventsUser(array $arguments): array
+    {
+        $validatedUserArguments = $this->eventArgumentValidator->validateUserArguments($arguments);
+        $uri = $this->uriGenerator->buildEventListUser($validatedUserArguments);
+
+        return $this->request->process($uri) ?? [];
     }
 }

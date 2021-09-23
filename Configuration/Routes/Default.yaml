@@ -1,0 +1,5 @@
+# This route enhancer config is not final
+# But you can simply include it in your site configuration:
+imports:
+  - resource: 'EXT:slub_profile_events/Configuration/Routes/EventListUser.yaml'
+

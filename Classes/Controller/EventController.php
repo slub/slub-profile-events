@@ -23,7 +23,6 @@ class EventController extends ActionController
     protected EventService $eventService;
 
     /**
-     * EventController constructor.
      * @param EventService $eventService
      */
     public function __construct(EventService $eventService)
@@ -32,6 +31,8 @@ class EventController extends ActionController
     }
 
     /**
+     * Get a list of events depend on arguments.
+     *
      * @return ResponseInterface
      */
     public function listAction(): ResponseInterface
@@ -40,6 +41,21 @@ class EventController extends ActionController
 
         $this->view->setVariablesToRender(['events']);
         $this->view->assign('events', $events);
+
+        return $this->jsonResponse();
+    }
+
+    /**
+     * Get a list of events by a specific user depend on arguments.
+     *
+     * @return ResponseInterface
+     */
+    public function listUserAction(): ResponseInterface
+    {
+        $eventsUser = $this->eventService->getEventsUser($this->request->getArguments());
+
+        $this->view->setVariablesToRender(['eventsUser']);
+        $this->view->assign('eventsUser', $eventsUser);
 
         return $this->jsonResponse();
     }
