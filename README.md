@@ -36,7 +36,7 @@ A list of events, you can manipulate with additional parameters.
 
 #### 3.1.1 Extension configuration
 
-- **Uri:** Address or domain to request the data. The uri has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".
+- **Uri:** Address or domain to request the data. The uri has to begin with "https://". Another DDEV container can be addressed directly via the container with "https: // ddev - ### YOUR-CONTAINER ### - web" or the domain, if configured "external_links".
 - **Argument identifier:** When you request data from this extension to the event api (external extension), you use additional parameters too. These parameters are wrapped with the "argument identifier". The default value is "tx_slubevents_apieventlist". Change only if you know what you do.
 
 #### 3.1.2 Available additional parameter
