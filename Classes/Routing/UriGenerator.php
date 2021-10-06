@@ -13,10 +13,24 @@ namespace Slub\SlubProfileEvents\Routing;
 
 use Slub\SlubProfileEvents\Domain\Model\Dto\ApiEventListConfiguration;
 use Slub\SlubProfileEvents\Domain\Model\Dto\ApiEventListUserConfiguration;
+use Slub\SlubProfileEvents\Utility\LanguageUtility;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class UriGenerator
 {
+    protected ConfigurationManager $configurationManager;
+
+    /**
+     * @param ConfigurationManager $configurationManager
+     */
+    public function __construct(ConfigurationManager $configurationManager)
+    {
+        $this->configurationManager = $configurationManager;
+    }
+
     /**
      * @param array $additionalParameters
      * @return string
@@ -54,13 +68,16 @@ class UriGenerator
      * @param string $requestArgumentIdentifier
      * @param array $additionalParameters
      * @return string
+     * @throws AspectNotFoundException
      */
     protected function build(
         string $requestUri,
         string $requestArgumentIdentifier,
         array $additionalParameters
     ): string {
-        $parameters = [];
+        $parameters = [
+            'L' => LanguageUtility::getUid() ?? 0
+        ];
 
         empty($requestArgumentIdentifier) ?: $parameters[$requestArgumentIdentifier] = $additionalParameters;
 
