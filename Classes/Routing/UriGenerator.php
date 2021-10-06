@@ -26,6 +26,7 @@ class UriGenerator
         /** @var ApiEventListConfiguration $apiConfiguration */
         $apiConfiguration = GeneralUtility::makeInstance(ApiEventListConfiguration::class);
 
+        /** @extensionScannerIgnoreLine */
         $requestUri = $apiConfiguration->getRequestUri();
         $requestArgumentIdentifier = $apiConfiguration->getRequestArgumentIdentifier();
 
@@ -41,6 +42,7 @@ class UriGenerator
         /** @var ApiEventListUserConfiguration $apiConfiguration */
         $apiConfiguration = GeneralUtility::makeInstance(ApiEventListUserConfiguration::class);
 
+        /** @extensionScannerIgnoreLine */
         $requestUri = $apiConfiguration->getRequestUri();
         $requestArgumentIdentifier = $apiConfiguration->getRequestArgumentIdentifier();
 
