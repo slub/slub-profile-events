@@ -17,7 +17,6 @@ use Slub\SlubProfileEvents\Utility\LanguageUtility;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class UriGenerator
 {
@@ -34,6 +33,7 @@ class UriGenerator
     /**
      * @param array $additionalParameters
      * @return string
+     * @throws AspectNotFoundException
      */
     public function buildEventList(array $additionalParameters): string
     {
@@ -50,6 +50,7 @@ class UriGenerator
     /**
      * @param array $additionalParameters
      * @return string
+     * @throws AspectNotFoundException
      */
     public function buildEventListUser(array $additionalParameters): string
     {
