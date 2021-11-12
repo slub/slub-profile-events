@@ -13,7 +13,7 @@ namespace Slub\SlubProfileEvents\Domain\Model\Dto\Request;
 
 trait RequestArgumentIdentifierTrait
 {
-    protected string $requestArgumentIdentifier;
+    protected string $requestArgumentIdentifier = '';
 
     /**
      * @return string

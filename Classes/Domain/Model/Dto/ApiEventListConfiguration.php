@@ -17,13 +17,13 @@ use Slub\SlubProfileEvents\Domain\Model\Dto\Request\RequestArgumentIdentifierTra
 use Slub\SlubProfileEvents\Domain\Model\Dto\Request\RequestUriInterface;
 use Slub\SlubProfileEvents\Domain\Model\Dto\Request\RequestUriTrait;
 use Slub\SlubProfileEvents\Utility\ConstantsUtility;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration as CoreExtensionConfiguration;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class ApiEventListConfiguration implements RequestUriInterface, RequestArgumentIdentifierInterface
+class ApiEventListConfiguration implements RequestArgumentIdentifierInterface, RequestUriInterface
 {
-    use RequestUriTrait;
     use RequestArgumentIdentifierTrait;
+    use RequestUriTrait;
 
     public const KEY = 'eventList';
 
@@ -31,8 +31,8 @@ class ApiEventListConfiguration implements RequestUriInterface, RequestArgumentI
     {
         $configuration = $this->getConfiguration(ConstantsUtility::EXTENSION_KEY)[self::KEY];
 
-        empty($configuration['requestUri']) ?: $this->setRequestUri($configuration['requestUri']);
         empty($configuration['requestArgumentIdentifier']) ?: $this->setRequestArgumentIdentifier($configuration['requestArgumentIdentifier']);
+        empty($configuration['requestUri']) ?: $this->setRequestUri($configuration['requestUri']);
     }
 
     /**
@@ -41,11 +41,11 @@ class ApiEventListConfiguration implements RequestUriInterface, RequestArgumentI
      */
     protected function getConfiguration($extensionKey = ''): array
     {
-        /** @var CoreExtensionConfiguration $coreExtensionConfiguration */
-        $coreExtensionConfiguration = GeneralUtility::makeInstance(CoreExtensionConfiguration::class);
+        /** @var ExtensionConfiguration $extensionConfiguration */
+        $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 
         try {
-            return $coreExtensionConfiguration->get($extensionKey);
+            return $extensionConfiguration->get($extensionKey);
         } catch (Exception $e) {
             return [];
         }

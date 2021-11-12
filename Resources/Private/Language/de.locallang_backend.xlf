@@ -25,6 +25,14 @@
 				<target>Auflistung von Veranstaltungen eines Benutzer mit zusätzlicher Einschränkung über Parameter.</target>
 			</trans-unit>
 
+			<trans-unit id="extensionConfiguration.authenticationUsername" resname="extensionConfiguration.authenticationUsername">
+				<source>Authentication username</source>
+				<target>Authentifizierung Benutzer</target>
+			</trans-unit>
+			<trans-unit id="extensionConfiguration.authenticationPassword" resname="extensionConfiguration.authenticationPassword">
+				<source>Authentication password</source>
+				<target>Authentifizierung Passwort</target>
+			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventList.requestUri" resname="extensionConfiguration.eventList.requestUri">
 				<source>URI: The uri has to begin with "https://". Another DDEV container can be addressed directly via the container with "https: // ddev - ### YOUR-CONTAINER ### - web" or the domain, if configured "external_links".</source>
 				<target>URI: Die URI muss mit "https://" anfangen. Ein anderer DDEV-Container kann direkt über den Container mit "https://ddev-###YOUR-CONTAINER###-web" angesprochen werden oder die Domain, wenn "external_links"konfiguriert.</target>

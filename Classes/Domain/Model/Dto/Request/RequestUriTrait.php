@@ -13,7 +13,7 @@ namespace Slub\SlubProfileEvents\Domain\Model\Dto\Request;
 
 trait RequestUriTrait
 {
-    protected string $requestUri;
+    protected string $requestUri = '';
 
     /**
      * @return string

@@ -27,6 +27,11 @@ News uses [semantic versioning][2], which means, that
 
 ## 3 API
 
+This extension communicates with another system to provide events. This other system **requires an
+authorization with username and password**. Please configure this data at extension configuration.
+If you do not have this data, ask the administration of the other system to allow access. This
+authorization works for the complete api.
+
 ### 3.1 Events
 
 A list of events, you can manipulate with additional parameters.
@@ -78,7 +83,8 @@ A list of events from a given user, you can manipulate with additional parameter
 
 #### 3.2.2 Available additional parameter
 
-You can use the same parameters as "events". Just replace "tx_slubprofileevents_eventlist" against "tx_slubprofileevents_eventlistuser".
+You can use the same parameters as "events". Just replace "tx_slubprofileevents_eventlist" against
+"tx_slubprofileevents_eventlistuser".
 
 [1]: https://getcomposer.org/
 [2]: https://semver.org/
