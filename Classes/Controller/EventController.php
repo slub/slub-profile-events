@@ -14,6 +14,7 @@ namespace Slub\SlubProfileEvents\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Slub\SlubProfileEvents\Mvc\View\JsonView;
 use Slub\SlubProfileEvents\Service\EventService;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class EventController extends ActionController
@@ -34,6 +35,7 @@ class EventController extends ActionController
      * Get a list of events depend on arguments.
      *
      * @return ResponseInterface
+     * @throws AspectNotFoundException
      */
     public function listAction(): ResponseInterface
     {
@@ -49,6 +51,7 @@ class EventController extends ActionController
      * Get a list of events by a specific user depend on arguments.
      *
      * @return ResponseInterface
+     * @throws AspectNotFoundException
      */
     public function listUserAction(): ResponseInterface
     {
