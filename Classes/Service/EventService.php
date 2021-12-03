@@ -14,6 +14,7 @@ namespace Slub\SlubProfileEvents\Service;
 use Slub\SlubProfileEvents\Http\Request;
 use Slub\SlubProfileEvents\Routing\UriGenerator;
 use Slub\SlubProfileEvents\Validation\EventArgumentValidator;
+use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 
 class EventService
 {
@@ -39,6 +40,7 @@ class EventService
     /**
      * @param array $arguments
      * @return array
+     * @throws AspectNotFoundException
      */
     public function getEvents(array $arguments): array
     {
@@ -51,6 +53,7 @@ class EventService
     /**
      * @param array $arguments
      * @return array
+     * @throws AspectNotFoundException
      */
     public function getEventsUser(array $arguments): array
     {

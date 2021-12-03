@@ -15,27 +15,34 @@ use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use Slub\SlubProfileEvents\Domain\Model\Dto\ApiConfiguration;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 class Request
 {
     public array $options = [
-        'headers' => ['Cache-Control' => 'no-cache'],
+        'headers' => [
+            'Cache-Control' => 'no-cache'
+        ],
         'allow_redirects' => false
     ];
     protected LoggerInterface $logger;
     protected RequestFactoryInterface $requestFactory;
+    protected ApiConfiguration $apiConfiguration;
 
     /**
      * @param LoggerInterface $logger
      * @param RequestFactoryInterface $requestFactory
+     * @param ApiConfiguration $apiConfiguration
      */
     public function __construct(
         LoggerInterface $logger,
-        RequestFactoryInterface $requestFactory
+        RequestFactoryInterface $requestFactory,
+        ApiConfiguration $apiConfiguration
     ) {
         $this->logger = $logger;
         $this->requestFactory = $requestFactory;
+        $this->apiConfiguration = $apiConfiguration;
     }
 
     /**
@@ -47,6 +54,8 @@ class Request
     public function process($uri = '', $method = 'GET', array $options = []): ?array
     {
         try {
+            $this->addAuthentication();
+
             $options = $this->mergeOptions($this->options, $options);
             $response = $this->requestFactory->request($uri, $method, $options);
 
@@ -82,7 +91,9 @@ class Request
     {
         $content = '';
 
-        if ($response->getStatusCode() === 200 && strpos($response->getHeaderLine('Content-Type'), 'application/json') === 0) {
+        if ($response->getStatusCode() === 200 &&
+            strpos($response->getHeaderLine('Content-Type'), 'application/json') === 0
+        ) {
             $content = (array)json_decode($response->getBody()->getContents(), true);
         }
 
@@ -100,5 +111,13 @@ class Request
         }
 
         return $content;
+    }
+
+    protected function addAuthentication(): void
+    {
+        $username = $this->apiConfiguration->getAuthenticationUsername();
+        $password = $this->apiConfiguration->getAuthenticationPassword();
+
+        $this->options['headers']['Authorization'] = 'Basic ' . base64_encode($username . ':' . $password);
     }
 }

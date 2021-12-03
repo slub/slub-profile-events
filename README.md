@@ -27,19 +27,28 @@ News uses [semantic versioning][2], which means, that
 
 ## 3 API
 
-### 3.1 Events
+This extension communicates with another system to provide events. This other system **requires an
+authorization with username and password**. Please configure this data at extension configuration.
+If you do not have this data, ask the administration of the other system to allow access. This
+authorization works for the complete api.
+
+### 3.1 Routes
+
+Please check the routes' configuration. You have to set the matching page (limitToPages). If not the routes will not work properly.
+
+### 3.2 Events
 
 A list of events, you can manipulate with additional parameters.
 
 - **Uri DDEV local:** https://ddev-slub-profile-service.ddev.site/events
 - **Uri general:** https://###YOUR-DOMAIN###/events
 
-#### 3.1.1 Extension configuration
+#### 3.2.1 Extension configuration
 
-- **Uri:** Address or domain to request the data. The uri has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".
+- **Uri:** Address or domain to request the data. The uri has to begin with "https://". Another DDEV container can be addressed directly via the container with "https: // ddev - ### YOUR-CONTAINER ### - web" or the domain, if configured "external_links".
 - **Argument identifier:** When you request data from this extension to the event api (external extension), you use additional parameters too. These parameters are wrapped with the "argument identifier". The default value is "tx_slubevents_apieventlist". Change only if you know what you do.
 
-#### 3.1.2 Available additional parameter
+#### 3.2.2 Available additional parameter
 
 Additional parameter | Type | Validation | Comment
 -------------------- | ---- | ---------- | -------
@@ -64,21 +73,22 @@ There is a simple validation without return of error messages.
 1. **StartAndStopTimestamp**: Both parameter needs to be set as integer
 1. **Sorting**: Just works with the key words "asc" and "desc"
 
-### 3.2 Events of a user
+### 3.3 Events of a user
 
 A list of events from a given user, you can manipulate with additional parameters.
 
 - **Uri DDEV local:** https://ddev-slub-profile-service.ddev.site/events/user/###USER_ID###
 - **Uri general:** https://###YOUR-DOMAIN###/events/user/###USER_ID###
 
-#### 3.2.1 Extension configuration
+#### 3.3.1 Extension configuration
 
 - **Uri:** Address or domain to request the data. The uri has to begin with "https://". If you connect to another ddev container, please use "https://ddev-###YOUR-CONTAINER###-web".
 - **Argument identifier:** When you request data from this extension to the event api (external extension), you use additional parameters too. These parameters are wrapped with the "argument identifier". The default value is "tx_slubevents_apieventlistuser". Change only if you know what you do.
 
-#### 3.2.2 Available additional parameter
+#### 3.3.2 Available additional parameter
 
-You can use the same parameters as "events". Just replace "tx_slubprofileevents_eventlist" against "tx_slubprofileevents_eventlistuser".
+You can use the same parameters as "events". Just replace "tx_slubprofileevents_eventlist" against
+"tx_slubprofileevents_eventlistuser".
 
 [1]: https://getcomposer.org/
 [2]: https://semver.org/
