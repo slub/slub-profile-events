@@ -63,9 +63,9 @@ tx_slubprofileevents_eventlist[stopTimestamp]     | Integer (Timestamp) | 4 | In
 tx_slubprofileevents_eventlist[sorting]           | String (asc/ desc)  | 5 | Default value is ascending
 tx_slubprofileevents_eventlist[limit]             | Integer             | 3 | Limit quantity of result data
 
-**Validation**
+**Sanitization**
 
-There is a simple validation without return of error messages.
+There is a simple sanitization integrated.
 
 1. **CommaSeparatedStringIds**: Converts each item (separated by comma) in a integer
 1. **Checked**: Parameter needs to be "1" to be respected
