@@ -50,18 +50,18 @@ A list of events, you can manipulate with additional parameters.
 
 #### 3.2.2 Available additional parameter
 
-Additional parameter | Type | Validation | Comment
--------------------- | ---- | ---------- | -------
-tx_slubprofileevents_eventlist[category]          | String/ Integer     | 1 | Comma separated list of category ids
-tx_slubprofileevents_eventlist[discipline]        | String/ Integer     | 1 | Comma separated list of discipline ids
-tx_slubprofileevents_eventlist[contact]           | String/ Integer     | 1 | Comma separated list of contact ids
-tx_slubprofileevents_eventlist[showPastEvents]    | Integer (0/ 1)      | 2 | Default is to show events beginning with today
-tx_slubprofileevents_eventlist[showEventsFromNow] | Integer (0/ 1)      | 2 | Additional setting for "showPastEvents"
-tx_slubprofileevents_eventlist[limitByNextWeeks]  | Integer             | 3 | Set a limit for the next weeks
-tx_slubprofileevents_eventlist[startTimestamp]    | Integer (Timestamp) | 4 | Influence the start date, works together with stopTimestamp
-tx_slubprofileevents_eventlist[stopTimestamp]     | Integer (Timestamp) | 4 | Influence the stop date, works together with startTimestamp
-tx_slubprofileevents_eventlist[sorting]           | String (asc/ desc)  | 5 | Default value is ascending
-tx_slubprofileevents_eventlist[limit]             | Integer             | 3 | Limit quantity of result data
+| Additional parameter                              | Type                | Validation | Comment                                                     |
+|---------------------------------------------------|---------------------|------------|-------------------------------------------------------------|
+| tx_slubprofileevents_eventlist[category]          | String/ Integer     | 1          | Comma separated list of category ids                        |
+| tx_slubprofileevents_eventlist[discipline]        | String/ Integer     | 1          | Comma separated list of discipline ids                      |
+| tx_slubprofileevents_eventlist[contact]           | String/ Integer     | 1          | Comma separated list of contact ids                         |
+| tx_slubprofileevents_eventlist[showPastEvents]    | Integer (0/ 1)      | 2          | Default is to show events beginning with today              |
+| tx_slubprofileevents_eventlist[showEventsFromNow] | Integer (0/ 1)      | 2          | Additional setting for "showPastEvents"                     |
+| tx_slubprofileevents_eventlist[limitByNextWeeks]  | Integer             | 3          | Set a limit for the next weeks                              |
+| tx_slubprofileevents_eventlist[startTimestamp]    | Integer (Timestamp) | 4          | Influence the start date, works together with stopTimestamp |
+| tx_slubprofileevents_eventlist[stopTimestamp]     | Integer (Timestamp) | 4          | Influence the stop date, works together with startTimestamp |
+| tx_slubprofileevents_eventlist[sorting]           | String (asc/ desc)  | 5          | Default value is ascending                                  |
+| tx_slubprofileevents_eventlist[limit]             | Integer             | 3          | Limit quantity of result data                               |
 
 **Sanitization**
 
