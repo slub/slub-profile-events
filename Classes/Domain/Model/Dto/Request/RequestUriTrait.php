@@ -26,7 +26,7 @@ trait RequestUriTrait
     /**
      * @param string $requestUri
      */
-    public function setRequestUri($requestUri = ''): void
+    public function setRequestUri(string $requestUri = ''): void
     {
         $this->requestUri = $requestUri;
     }
