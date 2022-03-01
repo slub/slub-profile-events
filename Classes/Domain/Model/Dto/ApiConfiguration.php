@@ -40,7 +40,7 @@ class ApiConfiguration
     /**
      * @param string $authenticationUsername
      */
-    public function setAuthenticationUsername($authenticationUsername = ''): void
+    public function setAuthenticationUsername(string $authenticationUsername = ''): void
     {
         $this->authenticationUsername = $authenticationUsername;
     }
@@ -56,7 +56,7 @@ class ApiConfiguration
     /**
      * @param string $authenticationPassword
      */
-    public function setAuthenticationPassword($authenticationPassword = ''): void
+    public function setAuthenticationPassword(string $authenticationPassword = ''): void
     {
         $this->authenticationPassword = $authenticationPassword;
     }
@@ -65,7 +65,7 @@ class ApiConfiguration
      * @param string $extensionKey
      * @return array
      */
-    protected function getConfiguration($extensionKey = ''): array
+    protected function getConfiguration(string $extensionKey = ''): array
     {
         /** @var ExtensionConfiguration $extensionConfiguration */
         $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
