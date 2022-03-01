@@ -13,26 +13,26 @@ namespace Slub\SlubProfileEvents\Service;
 
 use Slub\SlubProfileEvents\Http\Request;
 use Slub\SlubProfileEvents\Routing\UriGenerator;
-use Slub\SlubProfileEvents\Validation\EventArgumentValidator;
+use Slub\SlubProfileEvents\Sanitization\EventArgumentSanitization;
 use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
 
 class EventService
 {
-    protected EventArgumentValidator $eventArgumentValidator;
+    protected EventArgumentSanitization $eventArgumentSanitization;
     protected Request $request;
     protected UriGenerator $uriGenerator;
 
     /**
-     * @param EventArgumentValidator $eventArgumentValidator
+     * @param EventArgumentSanitization $eventArgumentSanitization
      * @param Request $request
      * @param UriGenerator $uriGenerator
      */
     public function __construct(
-        EventArgumentValidator $eventArgumentValidator,
+        EventArgumentSanitization $eventArgumentSanitization,
         Request $request,
         UriGenerator $uriGenerator
     ) {
-        $this->eventArgumentValidator = $eventArgumentValidator;
+        $this->eventArgumentSanitization = $eventArgumentSanitization;
         $this->request = $request;
         $this->uriGenerator = $uriGenerator;
     }
@@ -44,8 +44,8 @@ class EventService
      */
     public function getEvents(array $arguments): array
     {
-        $validatedArguments = $this->eventArgumentValidator->validateDefaultArguments($arguments);
-        $uri = $this->uriGenerator->buildEventList($validatedArguments);
+        $sanitizedArguments = $this->eventArgumentSanitization->sanitizeDefaultArguments($arguments);
+        $uri = $this->uriGenerator->buildEventList($sanitizedArguments);
 
         return $this->request->process($uri) ?? [];
     }
@@ -57,8 +57,8 @@ class EventService
      */
     public function getEventsUser(array $arguments): array
     {
-        $validatedUserArguments = $this->eventArgumentValidator->validateUserArguments($arguments);
-        $uri = $this->uriGenerator->buildEventListUser($validatedUserArguments);
+        $sanitizedUserArguments = $this->eventArgumentSanitization->sanitizeUserArguments($arguments);
+        $uri = $this->uriGenerator->buildEventListUser($sanitizedUserArguments);
 
         return $this->request->process($uri) ?? [];
     }
