@@ -51,7 +51,7 @@ class Request
      * @param array $options
      * @return array|null
      */
-    public function process($uri = '', $method = 'GET', array $options = []): ?array
+    public function process(string $uri = '', string $method = 'GET', array $options = []): ?array
     {
         try {
             $this->addAuthentication();
@@ -87,7 +87,7 @@ class Request
      * @param string $uri
      * @return array|null
      */
-    protected function getContent(ResponseInterface $response, $uri = ''): ?array
+    protected function getContent(ResponseInterface $response, string $uri = ''): ?array
     {
         $content = '';
 
