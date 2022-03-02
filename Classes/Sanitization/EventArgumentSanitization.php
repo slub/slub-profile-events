@@ -58,7 +58,7 @@ class EventArgumentSanitization
      * @param string $start
      * @param string $stop
      */
-    protected function sanitizeStartAndStopTimestamp($start = '', $stop = ''): void
+    protected function sanitizeStartAndStopTimestamp(string $start = '', string $stop = ''): void
     {
         if ((int)$start > 0 && (int)$stop > 0) {
             $this->sanitizedArguments['startTimestamp'] = $start;
@@ -73,7 +73,7 @@ class EventArgumentSanitization
      * @param string $key
      * @param string $value
      */
-    protected function sanitizeCommaSeparatedStringIds($key = '', $value = ''): void
+    protected function sanitizeCommaSeparatedStringIds(string $key = '', string $value = ''): void
     {
         $sanitizedValues = [];
         $values = GeneralUtility::trimExplode(',', $value);
@@ -93,16 +93,18 @@ class EventArgumentSanitization
      * @param string $key
      * @param string $value
      */
-    protected function sanitizeChecked($key = '', $value = ''): void
+    protected function sanitizeChecked(string $key = '', string $value = ''): void
     {
-        $value === '1' ? $this->sanitizedArguments[$key] = $value : null;
+        if ($value === '1') {
+            $this->sanitizedArguments[$key] = $value;
+        }
     }
 
     /**
      * @param string $key
      * @param string $value
      */
-    protected function sanitizeInteger($key = '', $value = ''): void
+    protected function sanitizeInteger(string $key = '', string $value = ''): void
     {
         empty($value) ?: $this->sanitizedArguments[$key] = (int)$value;
     }
@@ -113,8 +115,10 @@ class EventArgumentSanitization
      * @param string $key
      * @param string $value
      */
-    protected function sanitizeSorting($key = '', $value = ''): void
+    protected function sanitizeSorting(string $key = '', string $value = ''): void
     {
-        in_array($value, ['asc', 'desc']) ? $this->sanitizedArguments[$key] = $value : null;
+        if (in_array($value, ['asc', 'desc'])) {
+            $this->sanitizedArguments[$key] = $value;
+        }
     }
 }

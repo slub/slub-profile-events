@@ -35,7 +35,7 @@
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventList.requestUri" resname="extensionConfiguration.eventList.requestUri">
 				<source>URI: The uri has to begin with "https://". Another DDEV container can be addressed directly via the container with "https: // ddev - ### YOUR-CONTAINER ### - web" or the domain, if configured "external_links".</source>
-				<target>URI: Die URI muss mit "https://" anfangen. Ein anderer DDEV-Container kann direkt über den Container mit "https://ddev-###YOUR-CONTAINER###-web" angesprochen werden oder die Domain, wenn "external_links"konfiguriert.</target>
+				<target>URI: Die URI muss mit "https://" anfangen. Ein anderer DDEV-Container kann direkt über den Container mit "https://ddev-###YOUR-CONTAINER###-web" angesprochen werden oder die Domain, wenn "external_links" konfiguriert.</target>
 			</trans-unit>
 			<trans-unit id="extensionConfiguration.eventList.requestArgumentIdentifier" resname="extensionConfiguration.eventList.requestArgumentIdentifier">
 				<source>Argument identifier: The parameter needs to be written in a specific identifier. Default value "tx_slubevents_apieventlist". Change only if you know what you do.</source>
