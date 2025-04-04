@@ -26,7 +26,7 @@ trait RequestArgumentIdentifierTrait
     /**
      * @param string $requestArgumentIdentifier
      */
-    public function setRequestArgumentIdentifier($requestArgumentIdentifier = ''): void
+    public function setRequestArgumentIdentifier(string $requestArgumentIdentifier = ''): void
     {
         $this->requestArgumentIdentifier = $requestArgumentIdentifier;
     }

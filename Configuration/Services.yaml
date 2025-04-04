@@ -10,8 +10,5 @@ services:
   Slub\SlubProfileEvents\Http\Request:
     public: true
 
-  Slub\SlubProfileEvents\Routing\UriGenerator:
-    public: true
-
   Slub\SlubProfileEvents\Service\EventService:
     public: true

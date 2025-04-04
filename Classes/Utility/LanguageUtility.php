@@ -18,6 +18,7 @@ use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use UnexpectedValueException;
 
 class LanguageUtility
 {
@@ -54,12 +55,11 @@ class LanguageUtility
     {
         /** @var SiteFinder $siteFinder */
         $siteFinder = GeneralUtility::makeInstance(SiteFinder::class);
-        $site = null;
 
         try {
             return $siteFinder->getSiteByPageId($pageUid);
         } catch (SiteNotFoundException $e) {
-            throw new \UnexpectedValueException(
+            throw new UnexpectedValueException(
                 'A site not found by "' . $pageUid . '".',
                 1490360742
             );

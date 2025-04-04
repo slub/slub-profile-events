@@ -21,5 +21,5 @@ interface RequestArgumentIdentifierInterface
     /**
      * @param string $requestArgumentIdentifier
      */
-    public function setRequestArgumentIdentifier($requestArgumentIdentifier = ''): void;
+    public function setRequestArgumentIdentifier(string $requestArgumentIdentifier = ''): void;
 }

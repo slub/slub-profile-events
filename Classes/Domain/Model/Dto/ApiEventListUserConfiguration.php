@@ -39,7 +39,7 @@ class ApiEventListUserConfiguration implements RequestArgumentIdentifierInterfac
      * @param string $extensionKey
      * @return array
      */
-    protected function getConfiguration($extensionKey = ''): array
+    protected function getConfiguration(string $extensionKey = ''): array
     {
         /** @var ExtensionConfiguration $extensionConfiguration */
         $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
